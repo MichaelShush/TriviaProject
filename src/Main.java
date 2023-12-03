@@ -113,6 +113,10 @@ public class Main {
                     math = false;
                 }
             }
+
+            while (hangman) {
+
+            }
         }
         System.out.println("Thank you for playing!");
 
