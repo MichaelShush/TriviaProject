@@ -7,6 +7,7 @@ public class Main {
         boolean math = false;
         boolean trivia = false;
         boolean hangman = false;
+        boolean win = false;
 
         boolean testComplete = false;
 
@@ -22,6 +23,7 @@ public class Main {
                 math = true;
             } else if(selectedChoice.toLowerCase().equals("hangman")){
                 hangman = true;
+                System.out.println();
                 System.out.print("Welcome to hangman!");
             } else if (selectedChoice.toLowerCase().equals("quit")) {
                 run = false;
@@ -115,7 +117,49 @@ public class Main {
             }
 
             while (hangman) {
+                Hangman hangmanGame = new Hangman();
 
+                System.out.println();
+                System.out.println("You can pick from 3 difficulties, each corresponding with the amount of letters in the word.");
+                System.out.println("Your attempts will scale with difficulty.");
+                System.out.println("An attempt will not be used if the letter you have selected is in the word.");
+                System.out.print("Select now: 4, 5, or 6 ");
+                scan.reset();
+                int difficulty = Integer.parseInt(scan.nextLine());
+                hangmanGame.setWord(difficulty);
+                int attempts = 0;
+                String progress = hangmanGame.revealed;
+                String usedLetters = "";
+                String input = "";
+                System.out.println();
+                boolean attemptUsed = false;
+
+                while(attempts != (difficulty + 3)){
+                    System.out.println("Your progress: " + hangmanGame.revealed);
+                    System.out.println("You have " + ((difficulty + 3) - attempts) + " attempts remaining.");
+                    System.out.print("Please input any letter: ");
+                    scan.reset();
+                    input = scan.nextLine();
+                    hangmanGame.checkLetter(input);
+                    if (progress.equals(hangmanGame.revealed)){
+                        attempts++;
+                    }
+                    progress = hangmanGame.revealed;
+                    System.out.println();
+                    if (progress.equals(hangmanGame.getWord())){
+                        attempts = difficulty + 3;
+                        win = true;
+                        System.out.println("Your progress: " + hangmanGame.revealed);
+                    }
+                }
+                if (win){
+                    System.out.println("Congratulations. You win!");
+                    System.out.println();
+                } else{
+                    System.out.println("The word was: " + hangmanGame.getWord() + ".");
+                    System.out.println("You lost. Better luck next time!");
+                    System.out.println();
+                }
             }
         }
         System.out.println("Thank you for playing!");
