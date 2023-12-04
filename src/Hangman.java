@@ -28,6 +28,8 @@ public class Hangman {
         } else if(length == 6){
             this.word = possibleWords[2][random];
             revealed = "______";
+        } else{
+            System.out.println("PICK A VALID OPTION PLEASE :3 uwu");
         }
     }
 
