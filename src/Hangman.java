@@ -2,11 +2,11 @@ public class Hangman {
     private String word = "";
     private int counter = 0;
     private final String[][] possibleWords = {
-            {"sigh", "tart", "kids", "rope", "sore"},
-            {"saint", "party", "bored", "trope", "arise"},
-            {"damage", "glazed", "defeat", "trivia", "sorted"}
+            {"sigh", "tart", "kids", "rope", "sore", "core", "lore", "mope", "ball", "mace", "fame", "good", "fork", "cook", "stay", "trap", "pore", "gray", "head", "mice"},
+            {"saint", "stray", "bored", "trope", "arise", "shore", "beach", "rough", "trout", "ocean", "drama", "giant", "dense", "tired", "stuck", "liked", "again", "roses", "stand", "queen"},
+            {"damage", "glazed", "defeat", "trivia", "sorted", "unlike", "lenses", "maniac", "string", "sister", "bother", "desert", "notice", "insane", "bouncy", "forward", "psyche", "guilty", "guitar", "dances"}
     };
-    int random = (int)(Math.random() * 4);
+    int random = (int)(Math.random() * 19);
 
     public Hangman(){
 

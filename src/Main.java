@@ -132,7 +132,6 @@ public class Main {
                 String usedLetters = "";
                 String input = "";
                 System.out.println();
-                boolean attemptUsed = false;
 
                 while(attempts != (difficulty + 3)){
                     System.out.println("Your progress: " + hangmanGame.revealed);
@@ -160,9 +159,14 @@ public class Main {
                     System.out.println("You lost. Better luck next time!");
                     System.out.println();
                 }
+                System.out.print("Would you like to play again? (y/n)");
+                String replayHangman = scan.nextLine();
+                if (replayHangman.equals("n")){
+                    hangman = false;
+                }
             }
-        }
         System.out.println("Thank you for playing!");
-
+        System.out.println();
+        }
     }
 }
